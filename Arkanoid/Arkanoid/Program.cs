@@ -31,7 +31,7 @@ namespace Arkanoid
         public string difficulty = "HARD";
         char[,] area;
         object lockObj = new object();
-        string savePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "Saves", "save.json");
+        string savePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "Saves", "save.json");
         bool loadedGame = false;
         int score = 0;
         public Arkanoid(char[,] area)
@@ -109,7 +109,7 @@ namespace Arkanoid
                     {
                         movey = -movey;
                     }
-                    else if(area[nexty, ballposex] == platform || area[nexty, nextx] == platform || area[ballposey, nextx] == platform)
+                    else if(area[nexty, ballposex] == platform || area[ballposey, nextx] == platform)
                     {
                         movey = -movey;
                     }
@@ -161,10 +161,16 @@ namespace Arkanoid
                         SaveGame();
                         break;
                     case ConsoleKey.A:
-                        MovePlatpose(true);
+                        MovePlatpose(true, keyInfo);
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        MovePlatpose(true, keyInfo);
+                        break;
+                    case ConsoleKey.RightArrow:
+                        MovePlatpose(false, keyInfo);
                         break;
                     case ConsoleKey.D:
-                        MovePlatpose(false);
+                        MovePlatpose(false, keyInfo);
                         break;
                     case ConsoleKey.Escape:
                         Console.Clear();
@@ -242,7 +248,7 @@ namespace Arkanoid
             }
         }
 
-        public void MovePlatpose(bool moveLeft)
+        public void MovePlatpose<T>(bool moveLeft, T key)
         {
             lock (lockObj)
             {
@@ -265,12 +271,14 @@ namespace Arkanoid
                 }
             }
             ShowArea();
+            key = default(T);
         }
         public void Menu()
         {
             bool choiseconfirmed = false;
             while (!choiseconfirmed)
             {
+                Console.CursorVisible = false;
                 Console.WriteLine("ARKANOID");
                 Console.WriteLine("1 - START");
                 Console.WriteLine("2 - LOAD SAVES");

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Arkanoid")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8542b5d57e59c59436c299643bb158b9bae968b5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+711c7fbf5f88ddf754936b48e9a71750814df763")]
 [assembly: System.Reflection.AssemblyProductAttribute("Arkanoid")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Arkanoid")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
