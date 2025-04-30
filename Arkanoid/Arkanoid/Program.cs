@@ -86,6 +86,7 @@ namespace Arkanoid
                     Console.Write("\n");
                 }
                 Console.WriteLine("Your score is: " + score);
+                Console.WriteLine("Saves on F5");
             }
         }
         public void ClearBall()
@@ -383,7 +384,6 @@ namespace Arkanoid
             bool choiseconfirmed = false;
             while (!choiseconfirmed)
             {
-                Console.CursorVisible = false;
                 loadedGame = false;
                 Console.WriteLine("ARKANOID");
                 Console.WriteLine("1 - START");
@@ -393,6 +393,7 @@ namespace Arkanoid
                 char choise = Console.ReadKey().KeyChar;
                 if (choise == '1')
                 {
+                    Console.CursorVisible = false;
                     choiseconfirmed = true;
                     SpawnArea();
                     ShowArea();
@@ -410,7 +411,6 @@ namespace Arkanoid
                     Console.Clear();
                     while (true)
                     {
-
                         Console.WriteLine("Difficulty of game is : " + difficulty);
                         Console.WriteLine("Do you want to change it?");
                         Console.WriteLine("1 - Yes");
