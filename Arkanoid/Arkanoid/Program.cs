@@ -53,21 +53,20 @@ namespace Arkanoid
                 {
                     for (int j = 0; j < area.GetLength(1); j++)
                     {
-                        if (i >= 0 && i < 5)
+                        if ( i <= 14 && i >= 16 && j<= 9 && j >= 13)
                         {
-                            area[i, j] = block;
+                            area[i, j] = ' ';
                         }
                         else
                         {
-                            area[i, j] = ' ';
+                            area[i, j] = block;
                         }
                     }
                 }
                 area[ballposey, ballposex] = ball;
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < area.GetLength(1); i++)
                 {
-                    if (platposex + i < area.GetLength(1))
-                        area[platposey, platposex + i] = platform;
+                        area[area.GetLength(0)-1, i] = platform;
                 }
                 score = 0;
             }
@@ -178,13 +177,13 @@ namespace Arkanoid
                     }
                     else if (area[nexty, ballposex] == block)
                     {
-                        if (area[ballposey, nextx] == block && nexty > 4)
+                        if (area[ballposey, nextx] == block && nexty <4)
                         {
                             Console.SetCursorPosition(nextx * 2, ballposey);
                             Console.Write(' ');
                             score += 500;
                         }
-                        if (area[nexty, nextx] == block && nexty > 4)
+                        if (area[nexty, nextx] == block && nexty < 4)
                         {
 
                             Console.SetCursorPosition(nextx * 2, nexty);
@@ -200,13 +199,13 @@ namespace Arkanoid
                     }
                     else if (area[ballposey, nextx] == block)
                     {
-                        if (area[nexty, ballposex] == block && nexty > 4)
+                        if (area[nexty, ballposex] == block && nexty < 4)
                         {
                             Console.SetCursorPosition(ballposex * 2, nexty);
                             Console.Write(' ');
                             score += 500;
                         }
-                        if (area[nexty, nextx] == block && nexty > 4)
+                        if (area[nexty, nextx] == block && nexty < 4)
                         {
 
                             Console.SetCursorPosition(nextx * 2, nexty);
@@ -411,8 +410,6 @@ namespace Arkanoid
                     ShowArea();
                     Thread ball = new Thread(new ThreadStart(MoveBall));
                     ball.Start();
-                    Thread platform = new Thread(new ThreadStart(MovePlatrform));
-                    platform.Start();
                 }
                 else if (choise == '2')
                 {
