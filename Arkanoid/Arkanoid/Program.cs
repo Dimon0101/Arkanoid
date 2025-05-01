@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text.Json;
@@ -44,7 +45,7 @@ namespace Arkanoid
             platposey = area.GetLength(0) - 1;
             platposex = area.GetLength(1) / 2;
         }
-        public void SpawnArea()
+        void SpawnArea()
         {
             if (!loadedGame)
             {
@@ -72,7 +73,7 @@ namespace Arkanoid
             }
         }
 
-        public void ShowArea()
+        void ShowArea()
         {
             lock (lockObj)
             {
@@ -89,25 +90,39 @@ namespace Arkanoid
                 Console.WriteLine("Saves on F5");
             }
         }
-        public void ClearBall()
+        void ClearBall()
         {
             Console.SetCursorPosition(ballposex*2, ballposey);
             Console.Write(' ');
         }
-        public void Drawball()
+        void Drawball()
         {
                 Console.SetCursorPosition(ballposex*2, ballposey);
                 Console.Write($"{ball}");
         }
-        public void RicohetCheck(ref int nexty, ref int nextx)
+        void DrawPlatform()
         {
-            if (area[nexty, nextx] == block)
+            for (int i = 0; i < area.GetLength(1); i++)
             {
-                Console.SetCursorPosition(nextx * 2, nexty);
-                Console.Write(' ');
+                Console.SetCursorPosition(i * 2, area.GetLength(0) - 1);
+                Console.Write(area[area.GetLength(0) - 1, i]);
+            }
+        }
+        void RicohetCheck(ref int nexty, ref int nextx)
+        {
+            if (area[nexty, ballposex] == block)
+            {
+                if(area[nexty, nextx] == block)
+                {
+                    Console.SetCursorPosition(nextx * 2, nexty);
+                    Console.Write(' ');
+                    score += 500;
+                }
                 movey = -movey;
                 nexty += movey;
                 nextx += movex;
+                Console.SetCursorPosition(nextx * 2, nexty -1);
+                Console.Write(' ');
                 score += 500;
             }
             if (area[nexty, nextx] == platform)
@@ -117,7 +132,7 @@ namespace Arkanoid
                 nextx += movex;
             }
         }
-        public void MoveBall()
+        void MoveBall()
         {
             while (true)
             {
@@ -249,7 +264,7 @@ namespace Arkanoid
                 }
             }
         }
-        public void MovePlatrform()
+        void MovePlatrform()
         {
             while (true)
             {
@@ -281,7 +296,7 @@ namespace Arkanoid
             }
         }
 
-        public void SaveGame()
+        void SaveGame()
         {
             Directory.CreateDirectory(Path.GetDirectoryName(savePath));
             var rows = new List<string>();
@@ -311,7 +326,7 @@ namespace Arkanoid
             File.WriteAllText(savePath, json);
             Environment.Exit(0);
         }
-        public void LoadGame()
+        void LoadGame()
         {
             Console.Clear();
             if (File.Exists(savePath))
@@ -348,7 +363,7 @@ namespace Arkanoid
             }
         }
 
-        public void MovePlatpose<T>(bool moveLeft, T key)
+        void MovePlatpose<T>(bool moveLeft, T key)
         {
             lock (lockObj)
             {
@@ -371,19 +386,16 @@ namespace Arkanoid
                     if (platposex + i < area.GetLength(1))
                         area[platposey, platposex + i] = platform;
                 }
-            }
-            for (int i = 0; i < area.GetLength(1); i++)
-            {
-                Console.SetCursorPosition(i * 2, area.GetLength(0)-1);
-                Console.Write(area[area.GetLength(0)-1,i]);
+                DrawPlatform();
             }
             key = default(T);
         }
-        public void Menu()
+        void Menu()
         {
             bool choiseconfirmed = false;
             while (!choiseconfirmed)
             {
+                Console.Clear();
                 loadedGame = false;
                 Console.WriteLine("ARKANOID");
                 Console.WriteLine("1 - START");
@@ -411,7 +423,7 @@ namespace Arkanoid
                     Console.Clear();
                     while (true)
                     {
-                        Console.WriteLine("Difficulty of game is : " + difficulty);
+                        Console.WriteLine("Your difficult is: 3 (where 1 is Easy - 3 is Hard)");
                         Console.WriteLine("Do you want to change it?");
                         Console.WriteLine("1 - Yes");
                         Console.WriteLine("2 - No");
