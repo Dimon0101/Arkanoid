@@ -23,7 +23,7 @@ namespace Arkanoid
     class Arkanoid
     {
         char block = '■';
-        char platform = '▀';
+        char platform = '-';
         char ball = '●';
         int ballposey = 0;
         int ballposex = 0;
@@ -31,7 +31,7 @@ namespace Arkanoid
         int platposex = 0;
         int movex = -1;
         int movey = -1;
-        int difficulty = 3;
+        int difficulty = 2;
         char[,] area;
         object lockObj = new object();
         string savePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "Saves", "save.json");
@@ -53,7 +53,7 @@ namespace Arkanoid
                 {
                     for (int j = 0; j < area.GetLength(1); j++)
                     {
-                        if ( i <= 14 && i >= 16 && j<= 9 && j >= 13)
+                        if (i < 4 && j < 4)
                         {
                             area[i, j] = ' ';
                         }
@@ -115,13 +115,15 @@ namespace Arkanoid
                 {
                     Console.SetCursorPosition(nextx * 2, nexty);
                     Console.Write(' ');
+                    area[nexty, nextx] = ' ';
                     score += 500;
                 }
+                Console.SetCursorPosition(nextx * 2, nexty - 1);
+                Console.Write(' ');
+                area[nexty, ballposex] = ' ';
                 movey = -movey;
                 nexty += movey;
                 nextx += movex;
-                Console.SetCursorPosition(nextx * 2, nexty -1);
-                Console.Write(' ');
                 score += 500;
             }
             if (area[nexty, nextx] == platform)
@@ -135,20 +137,41 @@ namespace Arkanoid
         {
             while (true)
             {
+                if (difficulty == 1)
+                {
+                    Thread.Sleep(500);
+                }
+                else if (difficulty == 2)
+                {
+                    Thread.Sleep(1);
+                }
+                else if (difficulty == 3)
+                {
+                    Thread.Sleep(100);
+                }
                 lock (lockObj)
                 {
                     ClearBall();
                     area[ballposey, ballposex] = ' ';
                     int nexty = ballposey + movey;
                     int nextx = ballposex + movex;
-                    if (nextx < 0 || nextx > area.GetLength(1) - 1)
+                    if ((nextx < 0 || nextx > area.GetLength(1) - 1) && (nexty < 0 || nexty > area.GetLength(0)-1))
                     {
                         movex = -movex;
+                        movey = -movey;
+                        nexty += movey;
                         nextx += movex;
                         RicohetCheck(ref nexty,ref nextx);
                     }
-                    else if (nexty < 0)
+                    else if((nextx < 0 || nextx > area.GetLength(1) - 1))
                     {
+                        movex = -movex;
+                        nextx += movex;
+                        RicohetCheck(ref nexty, ref nextx);
+                    }
+                    else if (nexty < 0 || nexty > area.GetLength(0) - 1)
+                    {
+                        area[ballposey, ballposex] = ' ';
                         movey = -movey;
                         nexty += movey;
                         RicohetCheck(ref nexty, ref nextx);
@@ -175,70 +198,56 @@ namespace Arkanoid
                         nexty += 2*movey;
                         nextx += 2*movex;
                     }
-                    else if (area[nexty, ballposex] == block)
+                    else if (area[nexty, ballposex] == block || area[nexty, nextx] == block || area[ballposey, nextx] == block)
                     {
-                        if (area[ballposey, nextx] == block && nexty <4)
-                        {
-                            Console.SetCursorPosition(nextx * 2, ballposey);
-                            Console.Write(' ');
-                            score += 500;
-                        }
-                        if (area[nexty, nextx] == block && nexty < 4)
+                        if (area[nexty, ballposex] == block &&  area[nexty, nextx] == block && area[ballposey, nextx] == block)
                         {
 
+                            area[nexty, ballposex] = ' ';
+                            area[nexty, nextx] = ' ';
+                            area[ballposey, nextx] = ' ';
                             Console.SetCursorPosition(nextx * 2, nexty);
                             Console.Write(' ');
-                            score += 500;
-                        }
-                        Console.SetCursorPosition(ballposex * 2, nexty);
-                        Console.Write(' ');
-                        area[nexty, ballposex] = ' ';
-                        movey = -movey;
-                        nexty += movey;
-                        score += 500;
-                    }
-                    else if (area[ballposey, nextx] == block)
-                    {
-                        if (area[nexty, ballposex] == block && nexty < 4)
-                        {
-                            Console.SetCursorPosition(ballposex * 2, nexty);
-                            Console.Write(' ');
-                            score += 500;
-                        }
-                        if (area[nexty, nextx] == block && nexty < 4)
-                        {
-
-                            Console.SetCursorPosition(nextx * 2, nexty);
-                            Console.Write(' ');
-                            score += 500;
-                        }
-                        Console.SetCursorPosition(nextx * 2, ballposey);
-                        Console.Write(' ');
-                        area[ballposey, nextx] = ' ';
-                        movex = -movex;
-                        score += 500;
-                    }
-                    else if (area[nexty, nextx] == block)
-                    {
-                        if(area[nexty,ballposex] == block)
-                        {
                             Console.SetCursorPosition(ballposex*2, nexty);
                             Console.Write(' ');
-                            score += 500;
-                        }
-                        if(area[ballposey,nextx] == block)
-                        {
-                            Console.SetCursorPosition(nextx*2, ballposey);
+                            Console.SetCursorPosition(nextx * 2, ballposey);
                             Console.Write(' ');
-                            score += 500;
+                            score += 1500;
+                            movex = -movex;
+                            movey = -movey;
+                            nextx = ballposex;
+                            nexty = ballposey;
                         }
-                        Console.SetCursorPosition(nextx * 2, nexty);
-                        Console.Write(' ');
-                        area[nexty, nextx] = ' ';
-                        movey = -movey;
-                        score += 500;
-                        nexty = ballposey + movey;
-                        nextx = ballposex + movex;
+                        else
+                        {
+                            if (area[nexty, ballposex] == block)
+                            {
+                                Console.SetCursorPosition(ballposex * 2, nextx);
+                                Console.Write(' ');
+                                score += 500;
+                                area[nexty,ballposex] = ' ';
+                                movey = -movey;
+                                nexty += movey;
+                            }
+                            if(area[nexty, nextx] == block)
+                            {
+                                Console.SetCursorPosition(nextx * 2, nexty);
+                                Console.Write(' ');
+                                score += 500;
+                                area[nexty, nextx] = ' ';
+                                movex = -movex;
+                                nextx += movex;
+                            }
+                            if (area[ballposey, nextx] == block)
+                            {
+                                Console.SetCursorPosition(nexty * 2, ballposey);
+                                Console.Write(' ');
+                                score += 500;
+                                area[ballposey, nextx] = ' ';
+                                movex = -movex;
+                                nextx += movex;
+                            }
+                        }
                     }
                     ballposex = nextx;
                     ballposey = nexty;
@@ -249,21 +258,9 @@ namespace Arkanoid
                     Console.SetCursorPosition(0, area.GetLength(0));
                     Console.Write("Your score is : " + score);
                 }
-                if (difficulty == 1)
-                {
-                    Thread.Sleep(400);
-                }
-                else if (difficulty == 2)
-                {
-                    Thread.Sleep(250);
-                }
-                else if (difficulty == 3)
-                {
-                    Thread.Sleep(100);
-                }
             }
         }
-        void MovePlatrform()
+        void PlatrformController()
         {
             while (true)
             {
@@ -404,6 +401,10 @@ namespace Arkanoid
                 char choise = Console.ReadKey().KeyChar;
                 if (choise == '1')
                 {
+                    ballposex = 0;
+                    ballposey = 0;
+                    movex = 1;
+                    movey = 1;
                     Console.CursorVisible = false;
                     choiseconfirmed = true;
                     SpawnArea();
