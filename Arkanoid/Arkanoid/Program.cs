@@ -45,8 +45,7 @@ namespace Arkanoid
         bool loadedGame = false;
         int score = 0;
         int scorePerBlock = 500;
-        int blockcounter = 0;
-        bool level1Complete = false;
+        bool level1Complete = true;
         bool level2Complete = false;
         bool level3Complete = false;
         public Arkanoid(char[,] area)
@@ -59,7 +58,7 @@ namespace Arkanoid
         }
         void SpawnPlat()
         {
-            for (int i = platposex-1; i <= platposex+1; i++)
+            for (int i = 0; i < area.GetLength(1); i++)
             {
                 area[platposey, i] = platform;
             }
@@ -72,10 +71,9 @@ namespace Arkanoid
                 {
                     for (int j = 0; j < area.GetLength(1); j++)
                     {
-                        if (i == 0 && j == 17)
+                        if(i <= 4)
                         {
                             area[i, j] = block;
-                            blockcounter++;
                         }
                         else
                         {
@@ -95,10 +93,9 @@ namespace Arkanoid
                 {
                     for (int j = 0; j < area.GetLength(1); j++)
                     {
-                        if (i == 0 && j == 18)
+                        if(i >= 1 && i <= 3 && j >= 5 && j <= 16)
                         {
-                            area[i, j] = block;
-                            blockcounter++;
+                            area[i,j] = block;
                         }
                         else
                         {
@@ -114,20 +111,21 @@ namespace Arkanoid
         {
             if (!loadedGame)
             {
+                int per = 0;
                 for (int i = 0; i < area.GetLength(0); i++)
                 {
                     for (int j = 0; j < area.GetLength(1); j++)
                     {
-                        if (i == 0 && j == 16)
+                        if (i <= 10 && j >= 0 + per && j < area.GetLength(1)-per)
                         {
                             area[i, j] = block;
-                            blockcounter++;
                         }
                         else
                         {
                             area[i, j] = ' ';
                         }
                     }
+                    per += 1;
                 }
                 area[ballposey, ballposex] = ball;
                 score = 0;
@@ -148,7 +146,7 @@ namespace Arkanoid
                     Console.Write("\n");
                 }
                 Console.WriteLine("Your score is: " + score);
-                Console.WriteLine("Saves on F5");
+                    Console.WriteLine("Saves on F5");
             }
         }
         void ClearBall()
@@ -180,7 +178,7 @@ namespace Arkanoid
                     area[nexty, nextx] = ' ';
                     score += 500;
                 }
-                Console.SetCursorPosition(nextx * 2, nexty - 1);
+                Console.SetCursorPosition(nextx * 2, nexty);
                 Console.Write(' ');
                 area[nexty, ballposex] = ' ';
                 movey = -movey;
@@ -188,7 +186,7 @@ namespace Arkanoid
                 nextx += movex;
                 score += 500;
             }
-            else if(area[ballposey, nextx] == block)
+            if(area[ballposey, nextx] == block)
             {
                 Console.SetCursorPosition(nextx * 2, ballposey);
                 Console.Write(' ');
@@ -256,6 +254,20 @@ namespace Arkanoid
                 }
             }
         }
+        bool CheckWin()
+        {
+            for(int i = 0;i < area.GetLength(0); i++)
+            {
+                for(int j = 0; j < area.GetLength(1);j++)
+                {
+                    if (area[i,j] == block)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
         void MoveBall()
         {
             while (true)
@@ -321,7 +333,8 @@ namespace Arkanoid
                     Console.SetCursorPosition(0, area.GetLength(0));
                     Console.Write("Your score is : " + score);
                 }
-                if (score == blockcounter * scorePerBlock)
+                bool IsWin = CheckWin();
+                if (IsWin)
                 {
                     if (!level1Complete )
                     {
@@ -362,7 +375,7 @@ namespace Arkanoid
                 }
                 else if (difficulty == 3)
                 {
-                    Thread.Sleep(100);
+                    Thread.Sleep(10);
                 }
             }
         }
@@ -433,19 +446,19 @@ namespace Arkanoid
         void SaveGame()
         {
             Directory.CreateDirectory(Path.GetDirectoryName(savePath));
-            var rows = new List<string>();
+            List<string> areaInList = new List<string>();
             for (int i = 0; i < area.GetLength(0); i++)
             {
-                string row = "";
+                string line = "";
                 for (int j = 0; j < area.GetLength(1); j++)
                 {
-                    row += area[i, j];
+                    line += area[i, j];
                 }
-                rows.Add(row);
+                areaInList.Add(line);
             }
             var saveData = new SaveData()
             {
-                Area = rows,
+                Area = areaInList,
                 BallX = ballposex,
                 BallY = ballposey,
                 PlatX = platposex,
@@ -467,13 +480,13 @@ namespace Arkanoid
             {
                 string json = File.ReadAllText(savePath);
                 var saveData = JsonSerializer.Deserialize<SaveData>(json);
-                int rows = saveData.Area.Count;
-                int cols = saveData.Area[0].Length;
-                char[,] area1 = new char[rows, cols];
+                int lines = saveData.Area.Count;
+                int colums = saveData.Area[0].Length;
+                char[,] area1 = new char[lines, colums];
 
-                for (int i = 0; i < rows; i++)
+                for (int i = 0; i < lines; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (int j = 0; j < colums; j++)
                     {
                         area1[i, j] = saveData.Area[i][j];
                     }

@@ -14,11 +14,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
               "$type": "Bookmark",
@@ -32,7 +36,7 @@
               "RelativeDocumentMoniker": "Arkanoid\\Program.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\Program.cs",
               "RelativeToolTip": "Arkanoid\\Program.cs",
-              "ViewState": "AgIAAKcAAAAAAAAAAAAUwAgBAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAIACAAAAAAAAAAAAAFIBAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-02T19:13:26.034Z",
               "EditorCaption": ""
