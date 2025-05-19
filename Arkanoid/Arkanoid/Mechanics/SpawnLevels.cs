@@ -6,65 +6,65 @@ using System.Threading.Tasks;
 
 namespace Arkanoid.Mechanics
 {
-    public class SpawnLevels : GameBase
+    public static class SpawnLevels
     {
-        public void SpawnArea1()
+        public static void SpawnArea1()
         {
-            for (int i = 0; i < Area.GetLength(0); i++)
+            for (int i = 0; i < GameBase.Area.GetLength(0); i++)
             {
-                for (int j = 0; j < Area.GetLength(1); j++)
+                for (int j = 0; j < GameBase.Area.GetLength(1); j++)
                 {
                     if (i <= 4)
                     {
-                        Area[i, j] = Block;
+                        GameBase.Area[i, j] = GameBase.Block;
                     }
                     else
                     {
-                        Area[i, j] = ' ';
+                        GameBase.Area[i, j] = ' ';
                     }
                 }
             }
-            Area[Ballposey, Ballposex] = Ball;
-            Score = 0;
+            GameBase.Area[GameBase.Ballposey, GameBase.Ballposex] = GameBase.Ball;
+            GameBase.Score = 0;
         }
-        public void SpawnArea2()
+        public static void SpawnArea2()
         {
-            for (int i = 0; i < Area.GetLength(0); i++)
+            for (int i = 0; i < GameBase.Area.GetLength(0); i++)
             {
-                for (int j = 0; j < Area.GetLength(1); j++)
+                for (int j = 0; j < GameBase.Area.GetLength(1); j++)
                 {
                     if (i >= 1 && i <= 3 && j >= 5 && j <= 16)
                     {
-                        Area[i, j] = Block;
+                        GameBase.Area[i, j] = GameBase.Block;
                     }
                     else
                     {
-                        Area[i, j] = ' ';
+                        GameBase.Area[i, j] = ' ';
                     }
                 }
             }
-            Area[Ballposey, Ballposex] = Ball;
-            Score = 0;
+            GameBase.Area[GameBase.Ballposey, GameBase.Ballposex] = GameBase.Ball;
+            GameBase.Score = 0;
         }
-        public void SpawnArea3()
+        public static void SpawnArea3()
         {
             int per = 0;
-            for (int i = 0; i < Area.GetLength(0); i++)
+            for (int i = 0; i < GameBase.Area.GetLength(0); i++)
             {
-                for (int j = 0; j < Area.GetLength(1); j++)
+                for (int j = 0; j < GameBase.Area.GetLength(1); j++)
                 {
-                    if (i <= 10 && j >= 0 + per && j < Area.GetLength(1) - per)
+                    if (i <= 10 && j >= 0 + per && j < GameBase.Area.GetLength(1) - per)
                     {
-                        Area[i, j] = Block;
+                        GameBase.Area[i, j] = GameBase.Block;
                     }
                     else
                     {
-                        Area[i, j] = ' ';
+                        GameBase.Area[i, j] = ' ';
                     }
                 }
             }
-            Area[Ballposey, Ballposex] = Ball;
-            Score = 0;
+            GameBase.Area[GameBase.Ballposey, GameBase.Ballposex] = GameBase.Ball;
+            GameBase.Score = 0;
         }
     }
 }
