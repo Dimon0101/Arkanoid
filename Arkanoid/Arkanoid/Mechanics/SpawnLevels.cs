@@ -53,7 +53,7 @@ namespace Arkanoid.Mechanics
             {
                 for (int j = 0; j < GameBase.Area.GetLength(1); j++)
                 {
-                    if (i <= 10 && j >= 0 + per && j < GameBase.Area.GetLength(1) - per)
+                    if (i <= 10 && (j >= 0 + per && j < GameBase.Area.GetLength(1) - per))
                     {
                         GameBase.Area[i, j] = GameBase.Block;
                     }
@@ -62,6 +62,7 @@ namespace Arkanoid.Mechanics
                         GameBase.Area[i, j] = ' ';
                     }
                 }
+                per++;
             }
             GameBase.Area[GameBase.Ballposey, GameBase.Ballposex] = GameBase.Ball;
             GameBase.Score = 0;

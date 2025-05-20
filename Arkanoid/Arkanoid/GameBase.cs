@@ -29,8 +29,8 @@ namespace Arkanoid
         public static bool LoadedGame = false;
         public static int Score = 0;
         public static int ScorePerBlock = 500;
-        public static bool Level1Completed = false;
-        public static bool Level2Completed = false;
+        public static bool Level1Completed = true;
+        public static bool Level2Completed = true;
         public static bool Level3Completed = false;
         public class SaveData
         {
