@@ -7,113 +7,177 @@ using System.Threading.Tasks;
 
 namespace Arkanoid.Mechanics
 {
-    public class Menu
+    public static class Menu
     {
-        public void StartMenu()
+        public static void ChangeDifficulty()
         {
-            bool choiseconfirmed = false;
-            while (!choiseconfirmed)
+            Console.Clear();
+            string[] ChooseDifficulty = { "Easy", "Normal", "Hard" };
+            var CursoreCounter = 0;
+            bool DifficultyChoosen = false;
+            Console.BackgroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine(ChooseDifficulty[0]);
+            Console.ResetColor();
+            Console.WriteLine(ChooseDifficulty[1]);
+            Console.WriteLine(ChooseDifficulty[2]);
+            while (!DifficultyChoosen)
             {
-                Console.Clear();
-                GameBase.LoadedGame = false;
-                Console.WriteLine("ARKANOID");
-                Console.WriteLine("1 - START");
-                Console.WriteLine("2 - LOAD SAVES");
-                Console.WriteLine("3 - DIFFICULTY");
-                Console.WriteLine("4 - DELETE SAVES");
-                Console.WriteLine("5 - EXIT");
-                char choise = Console.ReadKey().KeyChar;
-                if (choise == '1')
+                if(Console.KeyAvailable)
                 {
-                    Ball.SpawnBall();
-                    if (File.Exists(GameBase.LevelPath))
+                    var keyInfo = Console.ReadKey(true);
+                    Console.ResetColor();
+                    switch(keyInfo.Key)
                     {
-                        LevelsCompletedSaves.LoadLevelComplete();
-                    }
-                    Console.CursorVisible = false;
-                    choiseconfirmed = true;
-                    if (!GameBase.LoadedGame)
-                    {
-                        if (!GameBase.Level1Completed)
-                        {
-                            SpawnLevels.SpawnArea1();
-                        }
-                        else if (!GameBase.Level2Completed)
-                        {
-                            SpawnLevels.SpawnArea2();
-                        }
-                        else if (!GameBase.Level3Completed)
-                        {
-                            SpawnLevels.SpawnArea3();
-                        }
-                        else if (GameBase.Level1Completed && GameBase.Level2Completed && GameBase.Level3Completed)
-                        {
-                            Console.Clear();
-                            Console.WriteLine("You comlepete all levels!!");
-                            Console.WriteLine("Press 4 in menu to reset your progress");
-                            break;
-                        }
-                    }
-                    Platform.SpawnPlat();
-                    DrawAndClear.ShowArea();
-                    Thread ball = new Thread(new ThreadStart(Ball.MoveBall));
-                    ball.Start();
-                    Thread plat = new Thread(new ThreadStart(ControllSettings.PlatrformController));
-                    plat.Start();
-                }
-                else if (choise == '2')
-                {
-                    InGameSaves.LoadGame();
-                }
-                else if (choise == '3')
-                {
-                    Console.Clear();
-                    while (true)
-                    {
-                        Console.WriteLine("Your difficult is: 3 (where 1 is Easy - 3 is Hard)");
-                        Console.WriteLine("Do you want to change it?");
-                        Console.WriteLine("1 - Yes");
-                        Console.WriteLine("2 - No");
-                        char choise1 = Console.ReadKey().KeyChar;
-                        if (choise1 == '1')
-                        {
-                            while (true)
+                        case ConsoleKey.UpArrow:
+                            if(CursoreCounter !=0)
                             {
-                                Console.Clear();
-                                Console.WriteLine("Enter new Difficult:");
-                                Console.WriteLine("1 - Easy");
-                                Console.WriteLine("2 - Normal");
-                                Console.WriteLine("3 - Hard");
-                                char choise2 = Console.ReadKey().KeyChar;
-                                if (choise2 == '1' || choise2 == '2' || choise2 == '3')
-                                {
-                                    GameBase.Difficulty = Convert.ToInt32(choise2 - 48);
-                                    GameBase.LoadedGame = true;
-                                    break;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Wrong value");
-                                }
+                                CursoreCounter--;
+                                MoveCursore(ChooseDifficulty,CursoreCounter);
                             }
                             break;
-                        }
-                        else if (choise == '2')
-                        {
+                        case ConsoleKey.DownArrow:
+                            if(CursoreCounter != 2)
+                            {
+                                CursoreCounter++;
+                                MoveCursore(ChooseDifficulty, CursoreCounter);
+                            }
                             break;
-                        }
+                        case ConsoleKey.Enter:
+                            GameBase.Difficulty = CursoreCounter+1;
+                            DifficultyChoosen = true;
+                            break;
                     }
-                    Console.Clear();
                 }
-                else if (choise == '5')
+            }
+            Console.Clear();
+        }
+        public static void MoveCursore(string[] option, int cursorepos)
+        {
+
+            Console.SetCursorPosition(0, 0);
+            for (int i = 0; i < option.Length; i++)
+            {
+                if (i == cursorepos)
                 {
-                    Console.Clear();
-                    Console.WriteLine("Closing game");
-                    break;
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
                 }
-                else if (choise == '4')
+                Console.WriteLine(option[i]);
+                Console.ResetColor();
+            }
+        }
+        public static void StartMenu()
+        {
+
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            int height = Console.LargestWindowHeight;
+            int width = Console.LargestWindowWidth;
+            Console.SetWindowSize(width, height);
+            bool choiseconfirmed = false;
+            var cursorepos = 0;
+            Console.CursorVisible = false;
+            Console.Clear();
+
+            String[] option = { "Start Game", "Load Game", "Difficulty choose","Delete Saves", "Exit" };
+
+
+            Console.BackgroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine(option[0]);
+            Console.ResetColor();
+            Console.WriteLine(option[1]);
+            Console.WriteLine(option[2]);
+            Console.WriteLine(option[3]);
+            Console.WriteLine(option[4]);
+            while (!choiseconfirmed)
+            {
+                if (Console.KeyAvailable)
                 {
-                    LevelsCompletedSaves.DeleteLevelComplete();
+                    var keyInfo = Console.ReadKey(true);
+                    Console.ResetColor();
+                    switch (keyInfo.Key)
+                    {
+                        case ConsoleKey.Escape:
+                            return;
+                        case ConsoleKey.DownArrow:
+                            if (cursorepos != 4)
+                            {
+                                cursorepos++;
+                                MoveCursore(option, cursorepos);
+                            }
+                            break;
+                        case ConsoleKey.UpArrow:
+                            if (cursorepos != 0)
+                            {
+                                cursorepos--;
+                                MoveCursore(option, cursorepos);
+                            }
+                            break;
+                        case ConsoleKey.Enter:
+                            if (cursorepos == 0)
+                            {
+                                Ball.SpawnBall();
+                                if (File.Exists(GameBase.LevelPath))
+                                {
+                                    LevelsCompletedSaves.LoadLevelComplete();
+                                }
+                                Console.CursorVisible = false;
+                                choiseconfirmed = true;
+                                if (!GameBase.LoadedGame)
+                                {
+                                    if (!GameBase.Level1Completed)
+                                    {
+                                        SpawnLevels.SpawnArea1();
+                                    }
+                                    else if (!GameBase.Level2Completed)
+                                    {
+                                        SpawnLevels.SpawnArea2();
+                                    }
+                                    else if (!GameBase.Level3Completed)
+                                    {
+                                        SpawnLevels.SpawnArea3();
+                                    }
+                                    else if (GameBase.Level1Completed && GameBase.Level2Completed && GameBase.Level3Completed)
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine("You comlepete all levels!!");
+                                        Console.WriteLine("Press 4 in menu to reset your progress");
+                                        break;
+                                    }
+                                }
+                                Platform.SpawnPlat();
+                                DrawAndClear.ShowArea();
+                                Thread ball = new Thread(new ThreadStart(Ball.MoveBall));
+                                ball.Start();
+                                Thread plat = new Thread(new ThreadStart(ControllSettings.PlatrformController));
+                                plat.Start();
+                            }
+                            else if (cursorepos == 1)
+                            {
+                                InGameSaves.LoadGame();
+                            }
+                            else if (cursorepos == 2)
+                            {
+                                ChangeDifficulty();
+                                MoveCursore(option,cursorepos);
+                            }
+                            else if (cursorepos == 3)
+                            {
+                                LevelsCompletedSaves.DeleteLevelComplete();
+                            }
+                            else if (cursorepos == 4)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Closing game");
+                                break;
+                            }
+                            break;
+                        case ConsoleKey.Backspace:
+                            Console.Clear();
+                            MoveCursore(option, cursorepos);
+                            break;
+                    }
                 }
             }
         }

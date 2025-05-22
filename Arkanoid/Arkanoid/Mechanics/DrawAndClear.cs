@@ -44,6 +44,5 @@ namespace Arkanoid.Mechanics
                 Console.Write(GameBase.Area[GameBase.Area.GetLength(0) - 1, i]);
             }
         }
-
     }
 }

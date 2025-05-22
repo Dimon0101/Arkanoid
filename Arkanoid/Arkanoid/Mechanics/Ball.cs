@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -117,7 +118,7 @@ namespace Arkanoid.Mechanics
                     if (Nexty == GameBase.Area.GetLength(0))
                     {
                         Console.Clear();
-                        Console.WriteLine("8b        d8                        88                                   \r\n Y8,    ,8P                         88                                   \r\n  Y8,  ,8P                          88                                   \r\n   \"8aa8\" ,adPPYba,  88       88    88  ,adPPYba,  ,adPPYba,  ,adPPYba,  \r\n    `88' a8\"     \"8a 88       88    88 a8\"     \"8a I8[    \"\" a8P_____88  \r\n     88  8b       d8 88       88    88 8b       d8  `\"Y8ba,  8PP\"\"\"\"\"\"\"  \r\n     88  \"8a,   ,a8\" \"8a,   ,a88    88 \"8a,   ,a8\" aa    ]8I \"8b,   ,aa  \r\n     88   `\"YbbdP\"'   `\"YbbdP'Y8    88  `\"YbbdP\"'  `\"YbbdP\"'  `\"Ybbd8\"'  \r\n");
+                        Console.WriteLine("Game loosed");
                         Environment.Exit(0);
                     }
                     else if ((Nextx < 0 || Nextx > GameBase.Area.GetLength(1) - 1) && (Nexty < 0 || Nexty > GameBase.Area.GetLength(0) - 1))
@@ -140,7 +141,7 @@ namespace Arkanoid.Mechanics
                         Nexty += GameBase.Movey;
                         RicohetCheck(ref Nexty, ref Nextx);
                     }
-                    else if (GameBase.Area[Nexty, GameBase.Ballposex] == GameBase.Platform)
+                    else if (GameBase.Area[Nexty, GameBase.Ballposex] == GameBase.Platform || GameBase.Area[Nexty, Nextx] == GameBase.Platform)
                     {
                         GameBase.Movey = -GameBase.Movey;
                         Nexty += 2 * GameBase.Movey;

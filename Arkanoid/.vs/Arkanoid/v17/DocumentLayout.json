@@ -3,40 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\gamebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\gamebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\mechanics\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\mechanics\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\mechanics\\spawnlevels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\mechanics\\spawnlevels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\mechanics\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\mechanics\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\mechanics\\platform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\mechanics\\platform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\mechanics\\levelscompletedsaves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\mechanics\\levelscompletedsaves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\mechanics\\ingamesaves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\mechanics\\ingamesaves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\gamebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\gamebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\mechanics\\ball.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\mechanics\\ball.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\mechanics\\drawandclear.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\mechanics\\drawandclear.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\mechanics\\controllsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\mechanics\\controllsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\mechanics\\ingamesaves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\mechanics\\ingamesaves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\mechanics\\levelscompletedsaves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\mechanics\\levelscompletedsaves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\mechanics\\platform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\mechanics\\platform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|c:\\users\\user\\documents\\github\\arkanoid\\arkanoid\\arkanoid\\mechanics\\drawandclear.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B774A914-2703-49E5-8119-3A125D412CF2}|Arkanoid\\Arkanoid.csproj|solutionrelative:arkanoid\\mechanics\\drawandclear.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,20 +62,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Menu.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\Mechanics\\Menu.cs",
               "RelativeDocumentMoniker": "Arkanoid\\Mechanics\\Menu.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\Mechanics\\Menu.cs",
               "RelativeToolTip": "Arkanoid\\Mechanics\\Menu.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAgwC4AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAAAKIAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-19T11:34:51.066Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "ControllSettings.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\Mechanics\\ControllSettings.cs",
               "RelativeDocumentMoniker": "Arkanoid\\Mechanics\\ControllSettings.cs",
@@ -83,11 +83,12 @@
               "RelativeToolTip": "Arkanoid\\Mechanics\\ControllSettings.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T11:33:11.012Z"
+              "WhenOpened": "2025-05-19T11:33:11.012Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "LevelsCompletedSaves.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\Mechanics\\LevelsCompletedSaves.cs",
               "RelativeDocumentMoniker": "Arkanoid\\Mechanics\\LevelsCompletedSaves.cs",
@@ -95,8 +96,7 @@
               "RelativeToolTip": "Arkanoid\\Mechanics\\LevelsCompletedSaves.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T11:31:23.231Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T11:31:23.231Z"
             },
             {
               "$type": "Document",
@@ -106,35 +106,34 @@
               "RelativeDocumentMoniker": "Arkanoid\\Mechanics\\InGameSaves.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\Mechanics\\InGameSaves.cs",
               "RelativeToolTip": "Arkanoid\\Mechanics\\InGameSaves.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwCwAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-19T11:27:51.724Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "DrawAndClear.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\Mechanics\\DrawAndClear.cs",
               "RelativeDocumentMoniker": "Arkanoid\\Mechanics\\DrawAndClear.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\Mechanics\\DrawAndClear.cs",
               "RelativeToolTip": "Arkanoid\\Mechanics\\DrawAndClear.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAqwC0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-19T11:24:28.735Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Platform.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\Mechanics\\Platform.cs",
               "RelativeDocumentMoniker": "Arkanoid\\Mechanics\\Platform.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\Mechanics\\Platform.cs",
               "RelativeToolTip": "Arkanoid\\Mechanics\\Platform.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwC4AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T11:21:33.53Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T11:21:33.53Z"
             },
             {
               "$type": "Document",
@@ -144,33 +143,33 @@
               "RelativeDocumentMoniker": "Arkanoid\\Mechanics\\SpawnLevels.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\Mechanics\\SpawnLevels.cs",
               "RelativeToolTip": "Arkanoid\\Mechanics\\SpawnLevels.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-17T07:37:32.981Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Ball.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\Mechanics\\Ball.cs",
               "RelativeDocumentMoniker": "Arkanoid\\Mechanics\\Ball.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\Mechanics\\Ball.cs",
               "RelativeToolTip": "Arkanoid\\Mechanics\\Ball.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAIwA4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAQwI8AAAB4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-17T07:07:32.114Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "GameBase.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\GameBase.cs",
               "RelativeDocumentMoniker": "Arkanoid\\GameBase.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Arkanoid\\Arkanoid\\Arkanoid\\GameBase.cs",
               "RelativeToolTip": "Arkanoid\\GameBase.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwCEAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAcwDkAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-02T19:13:26.034Z",
               "EditorCaption": ""

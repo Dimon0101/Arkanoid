@@ -55,12 +55,7 @@ namespace Arkanoid
     {
         static void Main(string[] args)
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            int height = Console.LargestWindowHeight;
-            int width = Console.LargestWindowWidth;
-            Console.SetWindowSize(width,height);
-            Menu menu = new Menu();
-            menu.StartMenu();
+            Menu.StartMenu();
         }
     }
 }
